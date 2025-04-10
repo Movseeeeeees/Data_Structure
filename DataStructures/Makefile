@@ -1,6 +1,6 @@
 CC = g++
 CFLAGS = -Iinc -Wall -g
-SRC =  src/vector.cpp src/main.cpp 
+SRC =  src/vector.cpp src/list.cpp src/main.cpp 
 OBJ = $(SRC:.cpp=.o)
 TARGET = Program
 
