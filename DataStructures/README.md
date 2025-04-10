@@ -1,9 +1,10 @@
-# Vector Implementation in C++
+# Data Structures Implementation in C++
 
-This project implements a custom `Vector` class in C++ that mimics the behavior of the standard `std::vector` container. It includes features such as dynamic resizing, iterators, and various utility functions.
+This project implements custom data structures in C++, including a `Vector` and a `List`. These implementations mimic the behavior of standard C++ containers and include various utility functions.
 
 ## Features
 
+### Vector
 - **Dynamic Resizing**: Automatically adjusts capacity as elements are added or removed.
 - **Iterators**: Supports forward and reverse iterators.
 - **Utility Functions**:
@@ -12,6 +13,16 @@ This project implements a custom `Vector` class in C++ that mimics the behavior 
   - `reserve`, `shrink_to_fit`, `resize`
   - `clear`, `print`
   - Accessors: `at`, `operator[]`, `front`, `back`
+
+### List
+- **Doubly Linked List**: Implements a doubly linked list with support for bidirectional traversal.
+- **Utility Functions**:
+  - `push_back`, `push_front`, `pop_back`, `pop_front`
+  - `insert`, `erase`
+  - `reverse`, `print`
+  - `Merge`, `Splice`
+  - Accessors: `front`, `back`
+  - Iterators: `begin`, `end`, `rbegin`, `rend`
 
 ## Usage
 
@@ -41,38 +52,28 @@ make clean
 
 ## Example Output
 
-The program demonstrates the usage of the `Vector` class, including operations like adding, removing, resizing, and iterating over elements. Example output:
+The program demonstrates the usage of the `Vector` and `List` classes, including operations like adding, removing, reversing, merging, and splicing elements. Example output:
 
 ```
-Hello, World!
-size: 0
-capacity: 1
-empty: 1
-size: 3
-capacity: 4
-empty: 0
-1 1 2 
-1 1 
-size: 3
-capacity: 10
-empty: 0
-size: 4
-capacity: 4
-empty: 0
-size: 5
-capacity: 5
-empty: 0
-1 2 3 4 5 
-5 4 3 2 1 
-1
-1 2 3 4 5 
+List size: 5
+List: 1 2 3 4 5 
+List: 1 2 3 4 
+List: 2 3 4 
+List: 4 3 2 
+List: 4 3 10 2 
+List: 4 3 2 
+List2 after merge: 7 6 4 3 2 
+List2 after splice: 1 4 7 6 4 3 2 
+List: 2 3 4 6 7 4 1 
 ```
 
 ## File Structure
 
-- `src/main.cpp`: Demonstrates the usage of the `Vector` class.
+- `src/main.cpp`: Demonstrates the usage of the `Vector` and `List` classes.
 - `src/vector.cpp`: Implementation of the `Vector` class.
+- `src/list.cpp`: Implementation of the `List` class.
 - `inc/vector.h`: Declaration of the `Vector` class.
+- `inc/list.h`: Declaration of the `List` class.
 - `Makefile`: Build system for compiling, running, and cleaning the project.
 
 ## Requirements

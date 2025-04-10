@@ -40,7 +40,6 @@ int main() {
     list3.push_back(1);
     list3.push_back(4);
 
-
     list2.Splice(list2.begin(), list3);
     cout << "List2 after splice: ";
     list2.print();
