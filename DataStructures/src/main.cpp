@@ -1,9 +1,12 @@
 #include <iostream>
 #include "vector.h"
 #include "list.h"
+#include "deque.h"
+
 using namespace std;
 
-int main() {
+void check_list()
+{
     List list;
     list.push_back(1);
     list.push_back(2);
@@ -46,6 +49,31 @@ int main() {
 
     list2.reverse();
     list2.print();
+}
+
+int main() {
+    Deque deque;
+
+    for (int i = 0; i < 12; ++i) {
+        deque.push_back(i);
+    }
+    cout << "Deque after push_back: ";
+    deque.print();
+    cout << "Size of deque: " << deque.size() << endl;
+
+    for (int i = 0; i < 5; ++i) {
+        deque.push_front(i);
+    }
+    cout << "Deque after push_front: ";
+    deque.print();
+
+    cout << "Size of deque: " << deque.size() << endl;
+
+    deque.pop_back();
+    deque.pop_back();
+
+    cout << "Deque after pop_back: ";
+    deque.print();
 
     return 0;
 }

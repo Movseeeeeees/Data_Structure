@@ -1,8 +1,8 @@
 CC = g++
 CFLAGS = -Iinc -Wall -g
-SRC =  src/vector.cpp src/list.cpp src/main.cpp 
+SRC = src/vector.cpp src/deque.cpp src/list.cpp src/main.cpp # Ensure deque.cpp is included
 OBJ = $(SRC:.cpp=.o)
-TARGET = Program
+TARGET = main.out # Match the target name used in launch.json
 
 all: $(TARGET)
 

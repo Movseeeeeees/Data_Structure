@@ -17,12 +17,12 @@ List::List() : head(nullptr),
 
 List::~List()
 {
-    /*while (head)
+    while (head)
     {
         Node *tmp = head;
         head = head->next;
         delete tmp;
-    }*/
+    }
 }
 
 void List::push_back(int value)
