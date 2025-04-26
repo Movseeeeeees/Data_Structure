@@ -16,4 +16,11 @@ run: $(TARGET)
 	./$(TARGET)
 
 clean:
-	rm -f $(OBJ) $(TARGET)
+	rm -f $(OBJ) $(TARGET) tests/test_deque.out
+
+# Testing target
+tests: tests/test_deque.cpp src/deque.cpp
+	$(CC) $(CFLAGS) tests/test_deque.cpp src/deque.cpp -o tests/test_deque.out
+
+run-tests: tests
+	./tests/test_deque.out

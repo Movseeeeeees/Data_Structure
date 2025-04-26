@@ -34,7 +34,19 @@ public:
     size_t size() const;
     bool empty() const;
     void print() const;
-    class IteratorDeque;
+    class IteratorDeque
+    {
+        friend class Deque;
+        Deque* m_deque;
+        int m_index;
+    public:
+        IteratorDeque( Deque* deque, int index ); 
+        IteratorDeque& operator++();
+        IteratorDeque& operator--();
+        bool operator!=( const IteratorDeque& other ); 
+        int& operator*();
+        int& operator[]( size_t index );
+    };
     IteratorDeque begin();
     IteratorDeque end();
 };
