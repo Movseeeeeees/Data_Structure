@@ -27,26 +27,30 @@ public:
     void pop_back();
     void pop_front();
 
-    int operator[]( size_t index );
+    int& operator[]( size_t index );
     int& at( size_t index );
     int& front();
     int& back();
     size_t size() const;
     bool empty() const;
     void print() const;
+    void printViaIterator() const;
     class IteratorDeque
     {
         friend class Deque;
         Deque* m_deque;
-        int m_index;
+        int m_box_index;
+        int m_element_index;
     public:
-        IteratorDeque( Deque* deque, int index ); 
+        IteratorDeque( Deque* deque, int box_index, int element_index ); 
         IteratorDeque& operator++();
         IteratorDeque& operator--();
         bool operator!=( const IteratorDeque& other ); 
         int& operator*();
         int& operator[]( size_t index );
+        void moveToNextBox();
+        void moveToPrevBox();
     };
-    IteratorDeque begin();
-    IteratorDeque end();
+    IteratorDeque begin() const;
+    IteratorDeque end() const;
 };

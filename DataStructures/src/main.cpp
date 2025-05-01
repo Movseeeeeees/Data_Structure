@@ -54,8 +54,11 @@ void check_list()
 int main() {
     Deque deque;
 
+    deque.push_back(18); 
     
-    
+    for (int i = 0; i < 12; ++i) {
+        deque.push_back(i);
+    }
     for (int i = 0; i < 5; ++i) {
         deque.push_front(i);
     }
@@ -82,5 +85,10 @@ int main() {
     cout << "Deque after pop_front: ";
     deque.print();
     cout << "Size of deque: " << deque.size() << endl;
+
+    cout <<deque[2]<<endl;
+    cout <<deque[7]<<endl;
+
+    deque.printViaIterator();
     return 0;
 }
