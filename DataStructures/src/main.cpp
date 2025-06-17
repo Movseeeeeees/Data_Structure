@@ -123,30 +123,36 @@ void insertionSort(Vector& vec)
     }
 }
 
-void merge(std::vector<int>& vec, int left, int mid, int right) {
+void merge(std::vector<int>& vec, int left, int mid, int right) 
+{
     std::vector<int> leftPart(vec.begin() + left, vec.begin() + mid + 1);
     std::vector<int> rightPart(vec.begin() + mid + 1, vec.begin() + right + 1);
 
     int i = 0, j = 0, k = left;
 
-    while (i < leftPart.size() && j < rightPart.size()) {
-        if (leftPart[i] <= rightPart[j]) {
+    while (i < leftPart.size() && j < rightPart.size()) 
+    {
+        if (leftPart[i] <= rightPart[j]) 
+        {
             vec[k++] = leftPart[i++];
         } else {
             vec[k++] = rightPart[j++];
         }
     }
 
-    while (i < leftPart.size()) {
+    while (i < leftPart.size()) 
+    {
         vec[k++] = leftPart[i++];
     }
 
-    while (j < rightPart.size()) {
+    while (j < rightPart.size()) 
+    {
         vec[k++] = rightPart[j++];
     }
 }
 
-void mergeSort(std::vector<int>& vec, int left, int right) {
+void mergeSort(std::vector<int>& vec, int left, int right) 
+{
     if (left >= right)
         return;
 
