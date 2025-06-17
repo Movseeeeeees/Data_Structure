@@ -2,6 +2,7 @@
 #include "vector.h"
 #include "list.h"
 #include "deque.h"
+#include <vector> // Include vector header
 
 using namespace std;
 
@@ -51,7 +52,8 @@ void check_list()
     list2.print();
 }
 
-int main() {
+void check_deque()
+{
     Deque deque;
 
     deque.push_back(18); 
@@ -89,6 +91,111 @@ int main() {
     cout <<deque[2]<<endl;
     cout <<deque[7]<<endl;
 
-    deque.printViaIterator();
+    deque.printViaIterator(); 
+}
+
+void BubbleSort(std::vector<int>& vec)
+{
+    for(int i=0;i < vec.size()-1;i++)
+    {
+        for(int j=0;j < vec.size()- 1 - i;j++)
+        {
+            if(vec[j] > vec[j+1])
+            {
+                std::swap(vec[j], vec[j+1]);
+            }
+        }
+    }
+}
+
+void insertionSort(Vector& vec)
+{
+    for (int i = 1; i <vec.size(); i++)
+    {
+        int key = vec[i];
+        int j = i - 1;
+        while( j>=0 && vec[j] > key)//shift
+        {
+            vec[j + 1] = vec[j];
+            j--;
+        }
+        vec[j + 1] = key;
+    }
+}
+
+void merge(std::vector<int>& vec, int left, int mid, int right) {
+    std::vector<int> leftPart(vec.begin() + left, vec.begin() + mid + 1);
+    std::vector<int> rightPart(vec.begin() + mid + 1, vec.begin() + right + 1);
+
+    int i = 0, j = 0, k = left;
+
+    while (i < leftPart.size() && j < rightPart.size()) {
+        if (leftPart[i] <= rightPart[j]) {
+            vec[k++] = leftPart[i++];
+        } else {
+            vec[k++] = rightPart[j++];
+        }
+    }
+
+    while (i < leftPart.size()) {
+        vec[k++] = leftPart[i++];
+    }
+
+    while (j < rightPart.size()) {
+        vec[k++] = rightPart[j++];
+    }
+}
+
+void mergeSort(std::vector<int>& vec, int left, int right) {
+    if (left >= right)
+        return;
+
+    int mid = (left + right) / 2;
+
+    mergeSort(vec, left, mid);
+    mergeSort(vec, mid + 1, right);
+    merge(vec, left, mid, right);
+}
+
+int main() {
+    std::vector<int> vec={5,2,9,1,5,6};
+
+    
+    std::cout<<"Original vector: ";
+    for (const auto& v : vec) 
+    {
+        std::cout << v << " ";
+    }
+    std::cout << std::endl;
+
+    BubbleSort(vec);
+
+    std::cout<<"Sorted vector using Bubble Sort: ";
+    for (const auto& v : vec) 
+    {
+        std::cout << v << " ";
+    }
+
+    Vector vector = {5, 2, 9, 1, 5, 6};
+    std::cout << "\nOriginal Vector: ";
+    vector.print();
+    insertionSort(vector);  
+    std::cout << "Sorted Vector using Insertion Sort: ";
+    vector.print(); 
+
+    std::vector<int> vec2 = {9, 4, 7, 1, 3, 8, 2};
+
+    std::cout << "Original vector: ";
+    for (int num : vec2)
+        std::cout << num << " ";
+    std::cout << std::endl;
+
+    mergeSort(vec2, 0, vec2.size() - 1);
+
+    std::cout << "Sorted vector using Merge Sort: ";
+    for (int num : vec2)
+        std::cout << num << " ";
+    std::cout << std::endl;
+
     return 0;
 }
