@@ -2,7 +2,7 @@
 #include "vector.h"
 #include "list.h"
 #include "deque.h"
-#include <vector> // Include vector header
+#include <vector>
 
 using namespace std;
 
